@@ -41,9 +41,12 @@ zstyle ':vcs_info:*' enable git
 
 precmd() {
     vcs_info
-    PROMPT='%K{238} %U%~%u %k%K{239}»%k%K{236} %U${vcs_info_msg_0_}%u %k%K{238}»%k%K{235}%E
+    PROMPT='%K{238} %U%~%u %k%K{239}»%k%K{236} %U${vcs_info_msg_0_}%u %k%K{235}%E
 %k%# '
     RPROMPT='%T'
 }
 
+# Env
+
+PATH=/usr/local/bin:$PATH
 

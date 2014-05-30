@@ -24,7 +24,7 @@
 (set-default-font "Fira Mono OT")
 
 ;; Themes
-(load-theme 'zenburn)
+(load-theme 'zenburn t)
 
 ;; Whitespace mode
 (setq whitespace-style
@@ -37,18 +37,19 @@
 (when (require 'erlang)
   (add-hook 'erlang-mode-hook 'fci-mode)
   (add-hook 'erlang-mode-hook 'whitespace-mode)
+  (add-to-list 'exec-path "/usr/local/bin")
 
   ;; EDTS
   (add-to-list 'load-path "~/dotfiles/edts")
   (require 'edts-start))
 
 ;; Autocomplete mode
-(when (require 'auto-complete-config)
+(when (require 'auto-complete-config nil t)
   (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
   (ac-config-default))
 
 ;; Flycheck
-(when (require 'flycheck)
+(when (require 'flycheck nil t)
   (add-hook 'after-init-hook #'global-flycheck-mode)
   (require 'auto-complete-clang-async)
   (setq flycheck-clang-language-standard "c++11")
