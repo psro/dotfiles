@@ -27,26 +27,78 @@ compinit
 autoload -U colors && colors
 autoload -Uz vcs_info
 
-setopt prompt_subst
-
 zstyle ':vcs_info:*' actionformats \
     '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
-zstyle ':vcs_info:*' formats       \
-    '%r @ %F{2}%c%u%b%f'
+zstyle ':vcs_info:*' formats '%r' '%c%u' '%.20b'
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
-zstyle ':vcs_info:*' stagedstr '%F{3}'
-zstyle ':vcs_info:*' unstagedstr '%F{3}'
+zstyle ':vcs_info:*' stagedstr '%F{11}'
+zstyle ':vcs_info:*' unstagedstr '%F{11}'
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' max-exports 5
+zstyle ':vcs_info:*' get-revision true
 
-precmd() {
+function get_git_status() {
+    local git_status
+    local num_untracked
+    local num_staged
+    local num_unstaged
+    local msg
+
+    msg=""
+    git_status=$(git status -su)
+
+    num_staged="$(echo "${git_status}" | egrep -c "^\w")"
+    if [[ $num_staged != "0" ]]; then
+        msg="${msg}%F{10}${num_staged}±%f "
+    fi
+    num_unstaged="$(echo "${git_status}" | egrep -c "^ \w")"
+    if [[ $num_unstaged != "0" ]]; then
+        msg="${msg}%F{9}${num_unstaged}!%f "
+    fi
+    num_untracked="$(echo "${git_status}" | egrep -c "^\?\?")"
+    if [[ $num_untracked != "0" ]]; then
+        msg="${msg}%F{11}${num_untracked}?%f "
+    fi
+    echo $msg
+}
+
+function format_vcs_msg() {
+    echo "%K{236} %U$1%u @ %U%F{2}$4$2%u $3%f ░%k"
+}
+
+function get_vcs_msg() {
+    local vcs_status
     vcs_info
-    PROMPT='%K{238} %U%~%u %k%K{239}»%k%K{236} %U${vcs_info_msg_0_}%u %k%K{235}%E
-%k%# '
-    RPROMPT='%T'
+    if [[ $vcs_info_msg_0_ != "" ]]; then
+        vcs_status=$(get_git_status)
+        echo $(format_vcs_msg $vcs_info_msg_0_ $vcs_info_msg_2_ $vcs_status \
+            $vcs_info_msg_1_)
+    else
+        echo ""
+    fi
+}
+
+function precmd() {
+    local prompt_path
+    local prompt_line_end
+    local prompt_end
+    local prompt_vcs_msg
+
+    prompt_path='%K{238}┌ %U%~%u ░%k'
+    prompt_line_end=$'%K{235}%E%k\n'
+    prompt_end='└ %# '
+    prompt_vcs_msg=$(get_vcs_msg)
+
+    if [[ -z ${vcs_dir} ]]; then
+        PROMPT="${prompt_path}${prompt_vcs_msg}${prompt_line_end}${prompt_end}"
+        RPROMPT="%T"
+    else
+        PROMPT="${prompt_path}${prompt_line_end}${prompt_end}"
+        RPROMPT="%T"
+    fi
 }
 
 # Env
 
-PATH=/usr/local/bin:$PATH
-
+PATH="/usr/local/bin:${PATH}"
