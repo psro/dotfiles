@@ -46,7 +46,7 @@ function get_git_status() {
     local msg
 
     msg=""
-    git_status=$(git status -su)
+    git_status=$(git status -s -uno)
 
     num_staged="$(echo "${git_status}" | egrep -c "^\w")"
     if [[ $num_staged != "0" ]]; then
