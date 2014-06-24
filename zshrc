@@ -102,3 +102,7 @@ function precmd() {
 # Env
 
 PATH="/usr/local/bin:${PATH}"
+
+if [[ $COLORTERM == 'gnome-terminal' ]]; then
+   TERM=xterm-256color
+fi

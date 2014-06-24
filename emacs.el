@@ -21,7 +21,7 @@
           mac-allow-anti-aliasing t
           x-select-enable-clipboard t))
 
-(set-default-font "Fira Mono OT")
+(set-default-font "Fira Mono OT 11")
 
 ;; Themes
 (load-theme 'zenburn t)
