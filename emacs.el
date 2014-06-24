@@ -29,6 +29,7 @@
 ;; Whitespace mode
 (setq whitespace-style
       '(face trailing tabs lines-tail empty indentation::tabs))
+(set-face-attribute 'whitespace-tab nil :background "#4F4F4F")
 
 ;; FCI mode
 (setq fci-rule-column 80)
