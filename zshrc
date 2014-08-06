@@ -6,7 +6,7 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 
-zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+zstyle ':completion:*' completer _expand _complete _ignored
 zstyle ':completion:*' completions 1
 zstyle ':completion:*' expand prefix
 zstyle ':completion:*' glob 1
@@ -14,10 +14,8 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*' ignore-parents parent pwd
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' max-errors 2
 zstyle ':completion:*' menu select=1
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' substitute 1
 zstyle :compinstall filename '/Users/samuel/.zshrc'
 
 autoload -Uz compinit
