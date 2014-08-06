@@ -104,3 +104,7 @@ PATH="/usr/local/bin:${PATH}"
 if [[ $COLORTERM == 'gnome-terminal' ]]; then
    TERM=xterm-256color
 fi
+
+## Load SSH Keys if keychain is available.
+[[ -f $(which keychain 2> /dev/null) ]] && \
+     keychain --nogui --quiet id_rsa
