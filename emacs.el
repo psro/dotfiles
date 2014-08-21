@@ -56,12 +56,23 @@
   (setq flycheck-clang-language-standard "c++11")
   (setq flycheck-clang-standard-library "libc++"))
 
+;; Org-mode
+(when (require 'org nil t)
+  (make-directory "~/notes" t)
+  (setq org-directory "~/notes")
+  (setq org-default-notes-file (concat org-directory "/capture.org"))
+  (global-set-key "\C-cl" 'org-store-link)
+  (global-set-key "\C-cc" 'org-capture)
+  (global-set-key "\C-ca" 'org-agenda)
+  (global-set-key "\C-cb" 'org-iswitchb))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes (quote ("cd70962b469931807533f5ab78293e901253f5eeb133a46c2965359f23bfb2ea" default)))
+ '(org-agenda-files (quote ("~/notes/gbl-11627.org")))
  '(safe-local-variable-values (quote ((allout-layout . t)))))
 
 (custom-set-faces
