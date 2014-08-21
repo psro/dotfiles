@@ -26,6 +26,9 @@
 ;; Themes
 (load-theme 'zenburn t)
 
+;; Windmove
+(windmove-default-keybindings 'meta)
+
 ;; Whitespace mode
 (setq whitespace-style
       '(face trailing tabs lines-tail empty indentation::tabs))
