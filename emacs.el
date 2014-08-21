@@ -21,7 +21,7 @@
           mac-allow-anti-aliasing t
           x-select-enable-clipboard t))
 
-(set-default-font "Fira Mono OT 11")
+(set-default-font "Fira Mono 9")
 
 ;; Themes
 (load-theme 'zenburn t)
@@ -41,6 +41,7 @@
 (when (require 'erlang)
   (add-hook 'erlang-mode-hook 'fci-mode)
   (add-hook 'erlang-mode-hook 'whitespace-mode)
+  (add-to-list 'exec-path "/usr/bin")
   (add-to-list 'exec-path "/usr/local/bin")
 
   ;; EDTS
