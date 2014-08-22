@@ -23,6 +23,8 @@ compinit
 # End of lines added by compinstall
 
 autoload -U colors && colors
+
+# Version
 autoload -Uz vcs_info
 
 zstyle ':vcs_info:*' actionformats \
@@ -101,8 +103,6 @@ function precmd() {
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
@@ -120,3 +120,9 @@ fi
 ## Load SSH Keys if keychain is available.
 [[ -f $(which keychain 2> /dev/null) ]] && \
      keychain --nogui --quiet id_rsa
+
+
+# Editor
+
+export ALTERNATE_EDITOR=emacs EDITOR=emacsclient VISUAL=emacsclient
+alias emacs='emacsclient -n'

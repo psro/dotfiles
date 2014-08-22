@@ -14,6 +14,9 @@
 (setq column-number-mode t)
 (setq-default indent-tabs-mode nil)
 
+;; Start server
+(server-start)
+
 ;; OSX options
 (if (eq system-type 'darwin)
     (setq mac-option-modifier nil
