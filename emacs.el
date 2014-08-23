@@ -71,6 +71,7 @@
   (make-directory "~/notes" t)
   (setq org-directory "~/notes")
   (setq org-default-notes-file (concat org-directory "/capture.org"))
+  (setq org-log-done 'time)
   (global-set-key "\C-cl" 'org-store-link)
   (global-set-key "\C-cc" 'org-capture)
   (global-set-key "\C-ca" 'org-agenda)
