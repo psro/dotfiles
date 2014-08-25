@@ -26,6 +26,12 @@
 
 (set-default-font "Fira Mono 9")
 
+;; Ido mode
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(setq ido-create-new-buffer 'always)
+(ido-mode 1)
+
 ;; Themes
 (load-theme 'zenburn t)
 
