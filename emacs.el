@@ -85,3 +85,7 @@
 
 ;; Projectile
 (projectile-global-mode)
+
+;; Multiple Cursors
+(when (require 'multiple-cursors nil t)
+  (global-set-key "\C-cm" 'mc/mark-more-like-this-extended))
