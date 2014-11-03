@@ -49,16 +49,25 @@
 ;; FCI mode
 (setq fci-rule-column 80)
 
-;; Erlang mode
-(when (require 'erlang)
-  (add-hook 'erlang-mode-hook 'fci-mode)
-  (add-hook 'erlang-mode-hook 'whitespace-mode)
-  (add-to-list 'exec-path "/usr/bin")
-  (add-to-list 'exec-path "/usr/local/bin")
+;; Bootstrap install Use-package
+(if (not (package-installed-p 'use-package))
+    (progn
+      (package-refresh-contents)
+      (package-install 'use-package)))
 
-  ;; EDTS
-  (add-to-list 'load-path "~/dotfiles/edts")
-  (require 'edts-start))
+;; Use-package
+(require 'use-package)
+
+;; Erlang mode
+(use-package erlang
+             :ensure erlang
+             :config (progn
+                       (add-hook 'erlang-mode-hook 'fci-mode)
+                       (add-hook 'erlang-mode-hook 'whitespace-mode)
+                       (add-to-list 'exec-path "/usr/bin")
+                       (add-to-list 'exec-path "/usr/local/bin")
+                       ;; EDTS
+                       (require 'edts-start)))
 
 ;; Autocomplete mode
 (when (require 'auto-complete-config nil t)
