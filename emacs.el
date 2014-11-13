@@ -98,3 +98,6 @@
 ;; Multiple Cursors
 (when (require 'multiple-cursors nil t)
   (global-set-key "\C-cm" 'mc/mark-more-like-this-extended))
+
+;; Align Regexp keybindings
+(global-set-key "\C-xa" 'align-regexp)
