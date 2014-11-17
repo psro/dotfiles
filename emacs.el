@@ -14,6 +14,11 @@
 (setq column-number-mode t)
 (setq-default indent-tabs-mode nil)
 
+;; Uniquify
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward
+      uniquify-separator ":")
+
 ;; Start server
 (server-start)
 
