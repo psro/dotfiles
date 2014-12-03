@@ -38,7 +38,7 @@
 (ido-mode 1)
 
 ;; Themes
-(load-theme 'zenburn t)
+(load-theme 'minimal-light t)
 
 ;; Windmove
 (global-set-key (kbd "C-M-<left>")  'windmove-left)
@@ -47,8 +47,9 @@
 (global-set-key (kbd "C-M-<down>")  'windmove-down)
 
 ;; Whitespace mode
+(global-whitespace-mode)
 (setq whitespace-style
-      '(face trailing tabs lines-tail empty indentation::tabs))
+      '(face trailing tabs lines-tail empty indentation::space))
 (set-face-attribute 'whitespace-tab nil :background "#4F4F4F")
 
 ;; FCI mode
