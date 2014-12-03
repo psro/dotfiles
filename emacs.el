@@ -71,6 +71,7 @@
                        (add-hook 'erlang-mode-hook 'whitespace-mode)
                        (add-to-list 'exec-path "/usr/bin")
                        (add-to-list 'exec-path "/usr/local/bin")
+                       (setq erlang-indent-level 2)
                        ;; EDTS
                        (require 'edts-start)))
 
