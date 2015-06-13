@@ -74,6 +74,8 @@
 
 (use-package edts)
 
+(use-package magit)
+
 ;; Autocomplete mode
 (when (require 'auto-complete-config nil t)
   (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
