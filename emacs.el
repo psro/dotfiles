@@ -98,7 +98,8 @@
   (global-set-key "\C-cb" 'org-iswitchb))
 
 ;; Projectile
-(projectile-global-mode)
+(use-package projectile
+  :config (projectile-global-mode))
 
 ;; Multiple Cursors
 (when (require 'multiple-cursors nil t)
