@@ -69,7 +69,10 @@
                        (add-to-list 'exec-path "/usr/local/bin")
                        (setq erlang-indent-level 2)
                        ;; EDTS
-                       (require 'edts-start)))
+                       ;(require 'edts-start)
+                       ))
+
+(use-package edts)
 
 ;; Autocomplete mode
 (when (require 'auto-complete-config nil t)
