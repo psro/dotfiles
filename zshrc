@@ -118,7 +118,7 @@ fi
 
 PATH="/usr/local/bin:${PATH}"
 
-if [[ $COLORTERM == 'gnome-terminal' ]]; then
+if [[ -n "$DISPLAY" && "$TERM" == "xterm" ]]; then
    TERM=xterm-256color
 fi
 
