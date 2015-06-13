@@ -29,16 +29,11 @@
           mac-allow-anti-aliasing t
           x-select-enable-clipboard t))
 
-(set-default-font "Fira Mono 9")
-
 ;; Ido mode
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (setq ido-create-new-buffer 'always)
 (ido-mode 1)
-
-;; Themes
-(load-theme 'minimal-light t)
 
 ;; Windmove
 (global-set-key (kbd "C-M-<left>")  'windmove-left)
