@@ -130,4 +130,3 @@ fi
 # Editor
 
 export ALTERNATE_EDITOR=emacs EDITOR=emacsclient VISUAL=emacsclient
-alias emacs='emacsclient -n'
