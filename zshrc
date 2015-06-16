@@ -27,6 +27,9 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+autoload bashcompinit
+bashcompinit
+
 autoload -U colors && colors
 
 # Version
@@ -69,7 +72,7 @@ function get_git_status() {
 }
 
 function format_vcs_msg() {
-    echo "%K{241} %U$1%u 5D@ %U%F{2}$4$2%u $3%f ░%k"
+    echo "%K{241} %U$1%u @ %U%F{2}$4$2%u $3%f ░%k"
 }
 
 function get_vcs_msg() {
