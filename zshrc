@@ -72,7 +72,7 @@ function get_git_status() {
 }
 
 function format_vcs_msg() {
-    echo "%K{241} %U$1%u @ %U%F{2}$4$2%u $3%f ░%k"
+    echo "%K{245} %U$1%u @ %U%F{2}$4$2%u $3%f ░%k"
 }
 
 function get_vcs_msg() {
@@ -93,8 +93,8 @@ function precmd() {
     local prompt_end
     local prompt_vcs_msg
 
-    prompt_path='%K{240}┌ %U%~%u ░%k'
-    prompt_line_end=$'%K{242}%E%k\n'
+    prompt_path='%K{244}┌ %U%~%u ░%k'
+    prompt_line_end=$'%K{246}%E%k\n'
     prompt_end='└ %# '
     prompt_vcs_msg=$(get_vcs_msg)
 
