@@ -86,7 +86,6 @@
 ;; Flycheck
 (when (require 'flycheck nil t)
   (add-hook 'after-init-hook #'global-flycheck-mode)
-  (require 'auto-complete-clang-async)
   (setq flycheck-clang-language-standard "c++11")
   (setq flycheck-clang-standard-library "libc++"))
 
