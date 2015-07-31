@@ -6,6 +6,8 @@
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 
+;(package-refresh-contents)
+
 ;; General options
 (scroll-bar-mode 0)
 (tool-bar-mode 0)
