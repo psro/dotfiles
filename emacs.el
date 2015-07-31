@@ -108,6 +108,30 @@
 (when (require 'multiple-cursors nil t)
   (global-set-key "\C-cm" 'mc/mark-more-like-this-extended))
 
+(use-package irony
+  :config (progn
+            (add-hook 'c-mode-hook 'irony-mode)
+            (add-hook 'c++-mode-hook 'irony-mode)
+            ;; replace the `completion-at-point' and `complete-symbol' bindings in
+            ;; irony-mode's buffers by irony-mode's function
+            (defun my-irony-mode-hook ()
+              (define-key irony-mode-map [remap completion-at-point]
+                'irony-completion-at-point-async)
+              (define-key irony-mode-map [remap complete-symbol]
+                'irony-completion-at-point-async))
+            (add-hook 'irony-mode-hook 'my-irony-mode-hook)
+            (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)))
+
+(use-package rtags
+  :config (progn
+            (rtags-enable-standard-keybindings)
+            (defun rtags-c-mode-hook ()
+              (define-key 'c-mode-base-map "\M-."
+                'rtags-find-symbol-at-point)
+              (define-key 'c-mode-base-map "\M-,"
+                'rtags-find-references-at-point))
+            (add-hook 'c-mode-common-hook 'rtags-c-mode-hook)))
+
 ;; Align Regexp keybindings
 (global-set-key "\C-xa" 'align-regexp)
 
