@@ -1,0 +1,4 @@
+---
+- name: Install pass
+  package: name=pass state=installed
+  become: yes

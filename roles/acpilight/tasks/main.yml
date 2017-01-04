@@ -1,0 +1,7 @@
+---
+- name: Clone repository
+  git: clone=yes repo=https://github.com/wavexx/acpilight.git dest=/opt/acpilight
+  become: yes
+- name: Install backlight rules
+  copy: src=90-backlight.rules dest=/etc/udev/rules.d/90-backlight.rules
+  become: yes

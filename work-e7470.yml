@@ -1,0 +1,15 @@
+---
+- hosts: 127.0.0.1
+  remote_user: samuel
+  connection: local
+  roles:
+  - fonts
+  - git
+  - tmux
+  - zsh
+  - gpg
+  - pass
+  - emacs
+  - arc-theme
+  - acpilight
+  - i3wm

@@ -1,0 +1,6 @@
+---
+- name: Ensure tmux is installed
+  package: name=tmux state=installed
+  become: yes
+- name: Install configuration file
+  copy: src=tmux.conf dest=~/.tmux.conf

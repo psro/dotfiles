@@ -1,0 +1,4 @@
+---
+- name: Install gpg
+  package: name=gpgv2 state=present
+  become: yes

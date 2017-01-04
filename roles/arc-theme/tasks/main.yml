@@ -1,0 +1,16 @@
+---
+- name: Add key
+  apt_key:
+    url: http://download.opensuse.org/repositories/home:Horst3180/xUbuntu_16.04/Release.key
+  become: yes
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '16.04'
+- name: Add PPA
+  apt_repository:
+    repo: deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /
+    filename: arc-theme
+    state: present
+  become: yes
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '16.04'
+- name: Install ARC theme
+  package: name=arc-theme state=latest
+  become: yes

@@ -1,0 +1,10 @@
+---
+- name: Install emacs
+  package: name=emacs state=latest
+  become: yes
+- name: Make backup of emacs.d
+  command: cp -a ~/.emacs.d ~/.emacs.d.bak creates=~/.emacs.d.bak removes=~/.emacs.d
+- name: Setup spacemacs
+  git: clone=yes repo=https://github.com/syl20bnr/spacemacs dest=~/.emacs.d
+- name: copy default spacemacs dotfile
+  copy: src=spacemacs dest=~/.spacemacs backup=yes

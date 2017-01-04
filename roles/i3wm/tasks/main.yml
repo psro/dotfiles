@@ -1,0 +1,10 @@
+---
+- name: Install i3
+  package: name=i3 state=present
+  become: yes
+- name: Create config dir
+  file: path=~/.i3 state=directory
+- name: Copy config file
+  copy: src=config dest=~/.i3/config
+- name: Copy i3status config file
+  copy: src=i3status.conf dest=~/.i3status.conf

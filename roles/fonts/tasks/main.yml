@@ -1,0 +1,21 @@
+---
+- name: Create fira font dir
+  file: dest=/usr/share/fonts/truetype/fira state=directory
+  become: yes
+- name: Download Fira Mono fonts
+  get_url: url=https://github.com/mozilla/Fira/raw/master/ttf/{{item}}.ttf dest=/usr/share/fonts/truetype/fira/{{item}}.ttf
+  become: yes
+  with_items:
+    - FiraMono-Bold
+    - FiraMono-Medium
+    - FiraMono-Regular
+- name: Create fure font dir
+  file: dest=/usr/share/fonts/truetype/fura state=directory
+  become: yes
+- name: Download Fura Powerline
+  get_url: url=https://github.com/powerline/fonts/blob/master/FiraMono/{{item}}.otf dest=/usr/share/fonts/truetype/fura/{{item}}.otf
+  become: yes
+  with_items:
+    - FuraMono-Bold%20Powerline
+    - FuraMono-Medium%20Powerline
+    - FuraMono-Regular%20Powerline
