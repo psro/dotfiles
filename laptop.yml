@@ -1,0 +1,21 @@
+---
+- hosts: 127.0.0.1
+  remote_user: samuel
+  connection: local
+  roles:
+#  - suspend-fixes
+  - fonts
+  - git
+  - tmux
+  - zsh
+  - gpg
+  - pass
+  - emacs
+  - arc-theme
+  - acpilight
+  - i3wm
+  - java
+  - leiningen
+  - docker
+  - node
+  - yarn

@@ -13,7 +13,7 @@
     state: present
   become: yes
 - name: Install node
-  apt: name="nodejs=6.9.5-1nodesource1~xenial1"
+  apt: name="nodejs"
   become: yes
 - name: Symlink /usr/bin/node
   file: path=/usr/bin/node src=/usr/bin/nodejs state=link
