@@ -1,0 +1,7 @@
+---
+- name: Install after resume unit file
+  copy: src=xrandr-auto.service dest=/etc/systemd/system/xrandr-auto.service
+  become: yes
+- name: Enable unit file
+  systemd: name="xrandr-auto" enabled=yes daemon_reload=yes
+  become: yes

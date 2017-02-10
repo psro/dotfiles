@@ -1,0 +1,8 @@
+---
+- name: Download lein
+  get_url: url=https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein dest=/usr/local/bin/lein mode=a+x
+  become: yes
+- name: Create .lein
+  file: path=~/.lein state=directory
+- name: Setup profiles.clj
+  copy: src=profiles.clj dest=~/.lein/profiles.clj

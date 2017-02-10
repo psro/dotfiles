@@ -3,6 +3,7 @@
   remote_user: samuel
   connection: local
   roles:
+  - suspend-fixes
   - fonts
   - git
   - tmux
@@ -13,3 +14,8 @@
   - arc-theme
   - acpilight
   - i3wm
+  - java
+  - leiningen
+  - docker
+  - node
+  - yarn

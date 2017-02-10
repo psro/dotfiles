@@ -1,0 +1,20 @@
+---
+- name: Add nodesource apt key
+  apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+  become: yes
+- name: Add nodesource apt repo
+  apt_repository:
+    repo: deb https://deb.nodesource.com/node_6.x xenial main
+    state: present
+  become: yes
+- name: Add nodesource apt repo
+  apt_repository:
+    repo: deb https://deb.nodesource.com/node_7.x xenial main
+    state: present
+  become: yes
+- name: Install node
+  apt: name="nodejs=6.9.5-1nodesource1~xenial1"
+  become: yes
+- name: Symlink /usr/bin/node
+  file: path=/usr/bin/node src=/usr/bin/nodejs state=link
+  become: yes

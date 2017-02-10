@@ -128,8 +128,11 @@ fi
 
 ## Load SSH Keys if keychain is available.
 [[ -f $(which keychain 2> /dev/null) ]] && \
-     keychain --nogui --quiet id_rsa
+    keychain --nogui --quiet id_rsa
 
+if [ "$0" = "/usr/sbin/lightdm-session" -a "$DESKTOP_SESSION" = "i3" ]; then
+    export $(gnome-keyring-daemon -s)
+fi
 
 # Editor
 
