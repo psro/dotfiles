@@ -1,0 +1,13 @@
+---
+- name: Add apt key
+  apt_key: keyserver=hkp://keyserver.ubuntu.com:80 id=417A0893
+  become: yes
+- name: Add apt repository
+  apt_repository:
+    repo: deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main
+    filename: dotnet-release
+    state: present
+  become: yes
+- name: Install dotnet core
+  apt: name=dotnet-dev-1.0.0-preview2-1-003177 state=present
+  become: yes
