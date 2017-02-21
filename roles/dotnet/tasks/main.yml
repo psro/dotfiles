@@ -9,5 +9,5 @@
     state: present
   become: yes
 - name: Install dotnet core
-  apt: name=dotnet-dev-1.0.0-preview2-1-003177 state=present
+  apt: name= dotnet-dev-1.0.0-rc4-004771
   become: yes
