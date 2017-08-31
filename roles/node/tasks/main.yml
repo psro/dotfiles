@@ -2,12 +2,12 @@
 - name: Add nodesource apt key
   apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key
   become: yes
-- name: Add nodesource apt repo
+- name: Add nodesource node 6 apt repo
   apt_repository:
     repo: deb https://deb.nodesource.com/node_6.x xenial main
     state: present
   become: yes
-- name: Add nodesource apt repo
+- name: Add nodesource node 7 apt repo
   apt_repository:
     repo: deb https://deb.nodesource.com/node_7.x xenial main
     state: present

@@ -7,4 +7,4 @@
 - name: Setup spacemacs
   git: clone=yes repo=https://github.com/syl20bnr/spacemacs dest=~/.emacs.d
 - name: copy default spacemacs dotfile
-  copy: src=spacemacs dest=~/.spacemacs backup=yes
+  template: src=spacemacs.j2 dest=~/.spacemacs backup=yes
