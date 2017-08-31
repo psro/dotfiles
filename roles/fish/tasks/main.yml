@@ -1,0 +1,12 @@
+---
+- name: Add fish ppa
+  apt_repository:
+    repo: ppa:fish-shell/release-2
+  become: yes
+- name: Ensure fish is installed
+  package: name=fish state=present
+  become: yes
+- name: Ensure fish functions directory
+  file: path=~/.config/fish/functions state=directory
+- name: Install fisherman
+  get_url: url=https://git.io/fisher dest=~/.config/fish/functions/fisher.fish
