@@ -1,21 +1,9 @@
 ---
+- set_fact:
+    fira_dir: /usr/share/fonts/opentype/fira
 - name: Create fira font dir
-  file: dest=/usr/share/fonts/truetype/fira state=directory
+  file: dest={{fira_dir}} state=directory
   become: yes
-- name: Download Fira Mono fonts
-  get_url: url=https://github.com/mozilla/Fira/raw/master/ttf/{{item}}.ttf dest=/usr/share/fonts/truetype/fira/{{item}}.ttf
+- name: Download Fira Mono Nerd fonts
+  unarchive: src=https://github.com/ryanoasis/nerd-fonts/releases/download/v1.1.0/FiraMono.zip dest={{fira_dir}} remote_src=yes
   become: yes
-  with_items:
-    - FiraMono-Bold
-    - FiraMono-Medium
-    - FiraMono-Regular
-- name: Create fure font dir
-  file: dest=/usr/share/fonts/truetype/fura state=directory
-  become: yes
-- name: Download Fura Powerline
-  get_url: url=https://github.com/powerline/fonts/blob/master/FiraMono/{{item}}.otf dest=/usr/share/fonts/truetype/fura/{{item}}.otf
-  become: yes
-  with_items:
-    - FuraMono-Bold%20Powerline
-    - FuraMono-Medium%20Powerline
-    - FuraMono-Regular%20Powerline
