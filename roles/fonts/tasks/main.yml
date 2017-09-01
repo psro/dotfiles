@@ -4,6 +4,9 @@
 - name: Create fira font dir
   file: dest={{fira_dir}} state=directory
   become: yes
+- stat: path="{{fira_dir}}/Fura Mono Medium for Powerline Nerd Font Complete Mono.otf"
+  register: fira_font_file
 - name: Download Fira Mono Nerd fonts
   unarchive: src=https://github.com/ryanoasis/nerd-fonts/releases/download/v1.1.0/FiraMono.zip dest={{fira_dir}} remote_src=yes
   become: yes
+  when: fira_font_file.stat.exists == False
