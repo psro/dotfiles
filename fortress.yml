@@ -9,6 +9,7 @@
   - fonts
   - git
   - tmux
+  - fasd
   - zsh
   - gpg
   - fish

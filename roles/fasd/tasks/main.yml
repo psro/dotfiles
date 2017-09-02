@@ -1,0 +1,6 @@
+---
+- name: Add fasd ppa
+  apt_repository: repo=ppa:aacebedo/fasd
+  become: yes
+- name: Install fasd
+  package: name=fasd state=installed
