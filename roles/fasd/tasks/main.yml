@@ -4,3 +4,4 @@
   become: yes
 - name: Install fasd
   package: name=fasd state=installed
+  become: yes

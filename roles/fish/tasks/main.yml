@@ -10,3 +10,8 @@
   file: path=~/.config/fish/functions state=directory
 - name: Install fisherman
   get_url: url=https://git.io/fisher dest=~/.config/fish/functions/fisher.fish
+- name: Setup fishfile
+  lineinfile: dest=~/.config/fish/fishfile line={{ item }} state=present
+  with_items: "{{ fish_plugins }}"
+- name: Install/Update plugins
+  shell: fish -c 'fisher < ~/.config/fish/fishfile'
