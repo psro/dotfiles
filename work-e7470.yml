@@ -7,12 +7,12 @@
   - fonts
   - git
   - tmux
+  - fasd
   - zsh
   - fish
   - gpg
   - pass
   - emacs
-  - arc-theme
   - acpilight
   - i3wm
   - java

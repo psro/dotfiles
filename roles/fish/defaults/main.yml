@@ -1,0 +1,5 @@
+---
+fish_plugins:
+  - oh-my-fish/plugin-fasd
+  - oh-my-fish/theme-bobthefish
+  - oh-my-fish/plugin-emacs
