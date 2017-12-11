@@ -30,7 +30,7 @@ values."
      ;; better-defaults
      clojure
      docker
-     edts
+     ;; edts
      elixir
      emacs-lisp
      ;; erlang
@@ -59,7 +59,11 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(lispy nginx-mode editorconfig tox)
+   dotspacemacs-additional-packages '(groovy-mode
+                                      lispy
+                                      nginx-mode
+                                      editorconfig
+                                      tox)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -263,6 +267,9 @@ in `dotspacemacs/user-config'."
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
+
+  (add-to-list 'auto-mode-alist '("Jenkinsfile" . groovy-mode))
+
   ;; Windmove
   (global-set-key (kbd "C-M-<left>")  'windmove-left)
   (global-set-key (kbd "C-M-<right>") 'windmove-right)
