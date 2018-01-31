@@ -30,7 +30,7 @@ values."
      ;; better-defaults
      clojure
      docker
-     edts
+     ;; edts
      elixir
      emacs-lisp
      ;; erlang
@@ -43,6 +43,7 @@ values."
      markdown
      org
      (python :variables python-test-runner 'pytest)
+     php
      react
      restclient
      ruby

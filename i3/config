@@ -102,6 +102,10 @@ bindsym $mod+Shift+space floating toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# Alt+Tab switch worksspace right or left
+bindsym Mod1+Tab workspace next
+bindsym Mod1+Shift+Tab workspace prev
+
 # focus the child container
 #bindsym $mod+d focus child
 
